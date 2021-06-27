@@ -63,13 +63,17 @@ public class CareerSteps
     @Then("user see text {string} next to {string}")
     public void userSeeTextNextTo(String arg0, String arg1)
     {
+        /* Select all text messages printed out when user leaves empty
+        fields before clicking the submit button. Then all the messages
+        are converted to a big string for making comparison with arg0.
+        This will return TRUE or FALSE by assertEquals
+        */
         String text = "";
         WaitForWebElement wait = new WaitForWebElement(driver);
         WebElementAttribute webElementAttribute = new WebElementAttribute(driver);
         wait.waitForElementByID("mat-error-0",10);
         ArrayList<String> messages = new ArrayList<>();
         List<WebElement> elements = (List<WebElement>) driver.findElements(By.cssSelector("mat-error[id^='mat-error']"));
-        System.out.println("size " + elements.size());
         for (int i = 0; i < elements.size(); i++) {
             messages.add(elements.get(i).getText());
         }

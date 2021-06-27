@@ -1,5 +1,5 @@
-# new feature
-# Tags: optional
+# this feature file has a very few test cases for testing career page. The test cases do not submit
+  # any data to the Mitigram website
 
 Feature: career page tests
   Background: close web browser
