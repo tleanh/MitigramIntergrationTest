@@ -25,8 +25,10 @@ public class CareerSteps
     private CareerPage careerPage;
     @Given("user is on the Careers page")
     public void userIsOnTheCareersPage() {
+        // a driver is created and passed to different Objects
         HomePage.setupWebdriver();
         driver = HomePage.getDriver();
+        // Select CARRERS menu and wait until the careers page is fully loaded
         AccessMenu accessMenu = new AccessMenu(driver);
         accessMenu.NavigateTo(AccessMenu.MenuItem.CAREERS);
         WaitForWebElement wait = new WaitForWebElement(driver);
@@ -63,10 +65,10 @@ public class CareerSteps
     @Then("user see text {string} next to {string}")
     public void userSeeTextNextTo(String arg0, String arg1)
     {
-        /* Select all text messages printed out when user leaves empty
-        fields before clicking the submit button. Then all the messages
+        /* Select all text messages printed out when user leaves
+        fields, in career page, emptied before clicking the submit button. Then all the messages
         are converted to a big string for making comparison with arg0.
-        This will return TRUE or FALSE by assertEquals
+        matchFound is then compared with TRUE in assertEquals.
         */
         String text = "";
         WaitForWebElement wait = new WaitForWebElement(driver);

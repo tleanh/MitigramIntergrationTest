@@ -21,8 +21,10 @@ public class LoginSteps
     private LoginPage loginPage;
     @Given("user is on the Mitigram login page")
     public void userIsOnTheMitigramLoginPage() {
+        // a driver is created and passed to different Objects
         HomePage.setupWebdriver();
         driver = HomePage.getDriver();
+        // Select login menu and wait until the login page is fully loaded
         AccessMenu accessMenu = new AccessMenu(driver);
         accessMenu.NavigateTo(AccessMenu.MenuItem.LOGIN);
         WaitForWebElement wait = new WaitForWebElement(driver);
@@ -52,6 +54,7 @@ public class LoginSteps
 
     @Then("user sees message {string}")
     public void userSeesMessage(String string) {
+        // compare text getting from a web element and compare it with string argument
         String textFromLogin;
         textFromLogin = driver.findElement(By.className("noty_body")).getText();
         Pattern pattern = Pattern.compile(string,Pattern.CASE_INSENSITIVE);
