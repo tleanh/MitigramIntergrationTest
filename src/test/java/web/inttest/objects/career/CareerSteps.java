@@ -62,8 +62,8 @@ public class CareerSteps
         careerPage.getSubmitButton().click();
     }
 
-    @Then("user see text {string} next to {string}")
-    public void userSeeTextNextTo(String arg0, String arg1)
+    @Then("user see text {string}")
+    public void userSeeTextNextTo(String arg0)
     {
         /* Select all text messages printed out when user leaves
         fields, in career page, emptied before clicking the submit button. Then all the messages
